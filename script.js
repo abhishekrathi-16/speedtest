@@ -1,4 +1,4 @@
-const RANDOM_QUOTE_API_URL='http://api.quotable.io/random'
+const RANDOM_QUOTE_API_URL='https://free-quotes-api.herokuapp.com/'
 const quoteDisplayElement = document.getElementById('quoteDisplay')
 const quoteInputElement = document.getElementById('quoteInput')
 const timerElement=document.getElementById('timer')
@@ -38,7 +38,7 @@ quoteInputElement.addEventListener('input',()=>{
 function getRandomQuote(){
     return fetch(RANDOM_QUOTE_API_URL)
     .then(response => response.json())
-    .then(data => data.content)
+    .then(data => data.quote)
 }
 
 async function renderNewQuote(){
@@ -55,7 +55,7 @@ async function renderNewQuote(){
     stopElement.classList.remove('disabled')
     quoteInputElement.value=null
     startTimer()
-    // console.log(quote)
+    console.log(quote)
 }
 
 let startTime
